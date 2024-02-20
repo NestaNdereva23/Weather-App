@@ -59,16 +59,47 @@ function displayweatherinfo(data){
 
     citydisplay.textContent = `${city}`;
     tempdisplay.textContent = `${Math.round(temp - 273)}°C`;
+    humiditydisplay.textContent =`Humidity: ${humidity}%`
+    descdisplay.textContent = description;
+    weatheremoji.textContent = getweatheremoji(id);
 
-    citydisplay.classList.add("citydisplay")
-    tempdisplay.classList.add("tempdisplay")
+    citydisplay.classList.add("citydisplay");
+    tempdisplay.classList.add("tempdisplay");
+    humiditydisplay.classList.add("humiditydisplay");
+    descdisplay.classList.add("descdisplay");
+    weatheremoji.classList.add("weatheremoji");
     
     card.appendChild(citydisplay);
     card.appendChild(tempdisplay);
+    card.appendChild(humiditydisplay);
+    card.appendChild(descdisplay);
+    card.appendChild(weatheremoji);
 
     
 }
 function getweatheremoji(weatherId){
+
+    switch(true) {
+        case (weatherId >= 200 && weatherId < 300):
+            return "⛈";
+        
+        case (weatherId >= 300 && weatherId < 400):
+            return "🌧";
+        case (weatherId >= 500 && weatherId  < 600):
+            return "🌧";
+        case (weatherId >= 600 && weatherId  < 700):
+            return "❄";
+        case (weatherId >= 700 && weatherId  < 800):
+            return "💨";
+        case (weatherId >= 700 && weatherId  < 800):
+            return "🌞";
+        case (weatherId >= 801 && weatherId  < 810):
+            return "☁";
+        default:
+            return "❓";
+        
+        
+        }
     
 }
 function displayerror(message){
